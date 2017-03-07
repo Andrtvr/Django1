@@ -8,11 +8,11 @@ from django.core.urlresolvers import reverse
 
 def paginate(request, qs):
     try:
-        limit = int(request.GET.get('limit', 10))
+        limit = int(request.GET.get('limit', 2))
     except ValueError:
-        limit = 10
+        limit = 2
     if limit > 100:
-        limit = 10
+        limit = 2
 
     try:
         page = int(request.GET.get('page', 1))

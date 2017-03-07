@@ -48,7 +48,7 @@ def new_quest(request):
             page = paginator.page(page)
         except EmptyPage:
             page = paginator.page(paginator.num_pages)
-            return page
+            return page, paginator
 
 
         return render(request, 'qa/new_quest.html', {
