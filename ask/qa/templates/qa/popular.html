@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AAA</title>
+</head>
+<body>
+{{quest}}
+<ul class="pagination">
+    {% for p in paginator.page_range %}
+        {% if p.number == page.number %}
+    <li class="active">
+    {% else %}
+    <li>
+    {% endif %}
+    <a href="{{ paginator.baseurl }}{{p.number}}">
+        {{p.number}}</a>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
+
