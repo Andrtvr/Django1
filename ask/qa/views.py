@@ -23,7 +23,7 @@ def new_quest(request):
     return render(request, 'qa/new_quest.html', {
         'quest': page.object_list,
         'paginator': paginator, 'page': page,
-    })
+    })1
 '''
 def new_quest(request):
     try:
