@@ -34,7 +34,7 @@ class Question(models.Model):
     rating = models.IntegerField(default=0)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     likes = models.ManyToManyField(User, related_name='Likes')
-    qm = QuestionManager()
+    objects = QuestionManager()
     def __str__(self):
         return self.text
 
