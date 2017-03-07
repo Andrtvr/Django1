@@ -1,0 +1,1 @@
+2017/03/07 12:55:09 [error] 2975#2975: *163 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: _, request: "GET /popular/?page=1 HTTP/1.1", upstream: "http://0.0.0.0:8000/popular/?page=1", host: "127.0.0.1"

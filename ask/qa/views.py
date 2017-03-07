@@ -40,29 +40,13 @@ def new_quest(request):
         'page': page,
         'paginator': paginator,
     })
-'''
-def question_list(request):
-    qs = Question.objects.all()
-    qs = qs.order_by('-added_at')
-    page, paginator = paginate(request, qs)
-    paginator.baseurl = reverse('question_list') + '?page='
 
-    return render(request, 'list.html', {
-        'questions': page.object_list,
-        'page': page,
-        'paginator': paginator,
-    })
-'''
 def popular(request):
-    quest = QuestionManager()
-    limit = request.GET.get('limit', 10)
-    page = request.GET.get('page', 1)
-    paginator = Paginator(quest.popular(), limit)
+    qs = QuestionManager()
+    qs = qs.popular()
+    page, paginator = paginate(request, qs)
     paginator.baseurl = 'popular/?page='
-    try:
-        page = paginator.page(page)
-    except EmptyPage:
-        page = paginator.page(paginator.num_pages)
+
     return render(request, 'qa/popular.html', {
         'quest': page.object_list,
         'paginator': paginator, 'page': page,
@@ -70,7 +54,7 @@ def popular(request):
 
 def question(request, slug):
     q = QuestionManager()
-    a = Answer()
+    #a = Answer()
     quest = q.quest(slug=slug)
     if quest == None:
         raise Http404
@@ -80,6 +64,16 @@ def question(request, slug):
         'quest': quest,
    #     'answer': a.id(),
     })
-
+    '''
+def question_detail(request, pk):
+    question = get_object_or_404(Question, id=pk)
+    answers = question.answer_set.all()
+    form = AnswerForm(initial={'question': str(pk)})
+    return render(request, 'detail.html', {
+        'question': question,
+        'answers': answers,
+        'form': form,
+    })
+'''
 def qa(request, *args, **kwargs):
     return HttpResponse('qa')

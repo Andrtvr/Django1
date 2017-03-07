@@ -15,7 +15,7 @@ class QuestionManager(models.Manager):
 
     def popular(self):
         cursor = connection.cursor()
-        cursor.execute(""" SELECT title, text FROM qa_question ORDER BY rating""")
+        cursor.execute(""" SELECT title, text FROM qa_question ORDER BY rating DESC """)
         result_list = []
         for i in cursor.fetchall():
             c = result_list.append(i)

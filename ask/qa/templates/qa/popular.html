@@ -5,19 +5,24 @@
     <title>AAA</title>
 </head>
 <body>
-{{quest}}
+
+    {% for q in quest %}
+    <div class="com" style="border: 1px solid red; height: 200px">
+        {{q}}
+    </div>
+    {% endfor %}
+
 <ul class="pagination">
     {% for p in paginator.page_range %}
-        {% if p.number == page.number %}
+        {% if p == page.number %}
     <li class="active">
     {% else %}
     <li>
     {% endif %}
-    <a href="{{ paginator.baseurl }}{{p.number}}">
-        {{p.number}}</a>
+    <a href="{{ paginator.baseurl }}{{p}}">
+        {{p}}</a>
     </li>
     {% endfor %}
 </ul>
 </body>
 </html>
-
