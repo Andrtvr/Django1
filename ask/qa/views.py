@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import Http404, HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.core.exceptions import ObjectDoesNotExist
@@ -33,21 +34,28 @@ def new_quest(request):
     if limit > 100:
         limit=10
     try:
-        page = request.GET.get('page', 1)
+      page = request.GET.get('page', 1)
     except ValueError:
         raise Http404
 
     quest = QuestionManager()
     paginator = Paginator(quest.new(), limit)
-    try:
-        page = paginator.page(page)
-    except EmptyPage:
-        page = paginator.page(paginator.num_pages)
+    if quest.new() ==[]:
+        raise Http404
+    else:
+    #try:
+    #    page = paginator.page(page)
+    #except EmptyPage:
+     #   page = paginator.page(paginator.num_pages
+        try:
+            page = paginator.page(page)
+        except EmptyPage:
+            raise Http404
 
-    return render(request, 'qa/new_quest.html', {
-        'quest': page.object_list,
-        'paginator': paginator, 'page': page,
-    })
+        return render(request, 'qa/new_quest.html', {
+            'quest': page.object_list,
+            'paginator': paginator, 'page': page,
+        })
 
 def popular(request):
     quest = QuestionManager()
