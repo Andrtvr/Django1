@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4b22543-14c3-4dac-9fc1-0f24e3e3b88c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ask/ask/urls.py" afterPath="$PROJECT_DIR$/ask/ask/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ask/qa/urls.py" afterPath="$PROJECT_DIR$/ask/qa/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ask/qa/views.py" afterPath="$PROJECT_DIR$/ask/qa/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/etc/access.log" afterPath="$PROJECT_DIR$/etc/access.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,6 +50,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -108,11 +105,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ask" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="BashConfigurationType" factoryName="Bash">
