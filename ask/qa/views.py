@@ -7,7 +7,7 @@ from django.core.paginator import Paginator, EmptyPage
 
 def qa(request, *args, **kwargs):
     return HttpResponse('qa')
-
+'''
 def new_quest(request):
     #quest = Question.objects.all()
     quest = QuestionManager()
@@ -20,6 +20,30 @@ def new_quest(request):
         page = paginator.page(page)
     except EmptyPage:
         page = paginator.page(paginator.num_pages)
+    return render(request, 'qa/new_quest.html', {
+        'quest': page.object_list,
+        'paginator': paginator, 'page': page,
+    })
+'''
+def new_quest(request):
+    try:
+        limit = request.GET.get('limit', 10)
+    except ValueError:
+        limit = 10
+    if limit > 100:
+        limit=10
+    try:
+        page = request.GET.get('page', 1)
+    except ValueError:
+        raise Http404
+
+    quest = QuestionManager()
+    paginator = Paginator(quest.new(), limit)
+    try:
+        page = paginator.page(page)
+    except EmptyPage:
+        page = paginator.page(paginator.num_pages)
+
     return render(request, 'qa/new_quest.html', {
         'quest': page.object_list,
         'paginator': paginator, 'page': page,
